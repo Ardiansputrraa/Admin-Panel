@@ -1,0 +1,47 @@
+<!--
+  Untuk menggabungkan html dengan jinja"
+  jadi setiap file adalah masing" componentnya
+  dan disatukan dengan jinja"
+-->
+{% include "Header.html" %} 
+{% include "Sidebar.html" %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- End Page Title -->
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!--Perulangan di jinja-jinja html-->
+    {% for fruit in fruits%}
+    <div class="col">
+      <div class="card">
+        <img
+          src="../static/assets/imgFruits/{{ fruit.image }}"
+          class="card-img-top"
+          alt="Hollywood Sign on The Hill"
+        />
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{ fruit.name }}</h5>
+            <h5 class="card-title" style="color: brown">Rp. {{ fruit.price }}</h5>
+          </div>
+          <p class="card-text">
+            {{ fruit.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+            <!--Menutup perulangan di jinja-jinja html-->
+    
+    
+  </div>
+</main>
+{% include "Footer.html" %}
